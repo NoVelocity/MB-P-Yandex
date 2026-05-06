@@ -1,0 +1,13 @@
+{
+  "information": {
+    "provider_id": "yandex",
+    "provider_repository": "https://github.com/MusicBridge/Provider-Yandex",
+    "provider_logo": "https://music.yandex.ru/favicon.svg",
+    "provider_color": {
+      "r": 255,
+      "g": 188,
+      "b": 13
+    }
+  },
+  "port": 8096
+}
