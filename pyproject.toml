@@ -1,0 +1,10 @@
+[project]
+name = "mb-yandex-provider"
+requires-python = "3.10>="
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "starlette",
+    "mutagen",
+    "yandex-music"
+]

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Yandex Auth</title>
+
+    <style>
+        :root {
+          --bg: #0b0b0b;
+          --card: #111;
+          --border: #222;
+          --text: #eaeaea;
+          --muted: #888;
+          --accent: #ffcc00;
+        }
+
+        * {
+          box-sizing: border-box;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+          margin: 0;
+          background: var(--bg);
+          color: var(--text);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+        }
+
+        .container {
+          width: 100%;
+          max-width: 420px;
+          background: var(--card);
+          border: 1px solid var(--border);
+          border-radius: 14px;
+          padding: 20px;
+        }
+
+        h2 {
+          margin: 0 0 12px;
+          font-size: 18px;
+        }
+
+        p {
+          margin: 0 0 14px;
+          color: var(--muted);
+          font-size: 14px;
+        }
+
+        a.button {
+          display: block;
+          text-align: center;
+          padding: 12px;
+          margin-bottom: 16px;
+          background: var(--accent);
+          color: #000;
+          font-weight: 600;
+          text-decoration: none;
+          border-radius: 10px;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px 12px;
+          border-radius: 10px;
+          border: 1px solid var(--border);
+          background: #000;
+          color: var(--text);
+          outline: none;
+          margin-bottom: 12px;
+        }
+
+        input::placeholder {
+          color: #555;
+        }
+
+        button {
+          width: 100%;
+          padding: 10px;
+          border-radius: 10px;
+          border: none;
+          background: #1f1f1f;
+          color: var(--text);
+          cursor: pointer;
+        }
+
+        button:hover {
+          background: #2a2a2a;
+        }
+
+        small {
+          display: block;
+          margin-top: 10px;
+          color: var(--muted);
+          font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h2>Yandex Music authorization page</h2>
+    <p>Login and paste URL to field</p>
+
+    <a
+            class="button"
+            href="https://oauth.yandex.ru/authorize?response_type=token&client_id=23cabbbdc6cd418abb4b39c32c41195d"
+            target="_blank"
+            rel="noopener"
+    >
+        Login by Yandex
+    </a>
+
+    <input
+            type="text"
+            placeholder="https://music.yandex.ru/#access_token=..."
+            id="tokenUrl"
+    />
+
+    <button onclick="submitToken()">Continue</button>
+
+    <small>Token stores locally</small>
+</div>
+
+<script>
+    function submitToken() {
+      const value = document.getElementById("tokenUrl").value.trim();
+      if (!value || !value.startsWith("https://music.yandex.ru/#access_token=")) {
+        alert("Incorrect URL format");
+        document.getElementById("tokenUrl").value = "";
+        return;
+      }
+
+      console.log("TOKEN URL:", value.slice(38).split('&')[0]);
+    }
+</script>
+</body>
+</html>

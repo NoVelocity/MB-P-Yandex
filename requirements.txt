@@ -1,5 +1,0 @@
-fastapi
-uvicorn
-starlette
-mutagen
-yandex-music
