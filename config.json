@@ -1,7 +1,7 @@
 {
   "information": {
     "provider_id": "yandex",
-    "provider_repository": "https://github.com/MusicBridge/Provider-Yandex",
+    "provider_repository": "https://github.com/NoVelocity/MB-P-Yandex",
     "provider_logo": "https://music.yandex.ru/favicon.svg",
     "provider_color": {
       "r": 255,
