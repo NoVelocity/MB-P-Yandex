@@ -66,7 +66,7 @@ def check_premium_by_client(client: Client):
 
 @app.get("/v1.0/auth", response_class=HTMLResponse)
 async def auth():
-    with open("auth.txt", "r") as f:
+    with open("auth.html", "r") as f:
         return f.read()
 
 

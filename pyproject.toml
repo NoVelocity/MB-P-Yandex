@@ -1,5 +1,5 @@
 [project]
-name = "mb-yandex-provider"
+name = "mb-provider-yandex"
 requires-python = "3.10>="
 dependencies = [
     "fastapi",

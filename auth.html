@@ -126,15 +126,29 @@
 </div>
 
 <script>
-    function submitToken() {
-      const value = document.getElementById("tokenUrl").value.trim();
-      if (!value || !value.startsWith("https://music.yandex.ru/#access_token=")) {
-        alert("Incorrect URL format");
-        document.getElementById("tokenUrl").value = "";
-        return;
-      }
+    function submitToken(){
+    const value = document.getElementById("tokenUrl").value.trim();
 
-      console.log("TOKEN URL:", value.slice(38).split('&')[0]);
+    if (!value.startsWith("https://music.yandex.ru/#access_token=")) {
+        alert("Incorrect URL format");
+        return;
+    }
+
+    const hash = new URL(value).hash;
+    const params = new URLSearchParams(hash.substring(1));
+
+    const token = params.get("access_token");
+
+    if (!token) {
+        alert("Token not found");
+        return;
+    }
+
+    window.opener.postMessage({
+        task: "tokenAuth",
+        provider: "yandex",
+        token: token
+    }, "*");
     }
 </script>
 </body>
